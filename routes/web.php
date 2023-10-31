@@ -20,4 +20,4 @@ Route::get('/', function () {
     return view('newpage', compact('filePath'));
 });
 
-Route::post('/pdff', [PdfController::class,'show'])->name('pdf.show');
+Route::get('/pdff', [PdfController::class,'show'])->name('pdf.show');

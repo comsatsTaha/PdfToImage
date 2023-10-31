@@ -19,10 +19,10 @@ class PdfController extends Controller
             $imagePath = 'storage/unsubscribedfiles' . '/' . $imageName;
            
         }
-
+        $imagepath= 'pdf\activity.pdf';
         $pdf = new Fpdi();
-        $pdf->setSourceFile(public_path($imagePath));
-        $totalPages = $pdf->setSourceFile(public_path($imagePath));
+        $pdf->setSourceFile(public_path($imagepath));
+        $totalPages = $pdf->setSourceFile(public_path($imagepath));
         $pagesToExtract = $request->pages;
         $pagesToExtract = min($totalPages, $pagesToExtract);
         $newPdf = new Fpdi();
@@ -30,10 +30,10 @@ class PdfController extends Controller
         $pageHeight = 300; 
         $pageOrientation = 'P'; 
 
-        for ($pageNo = 1; $pageNo <= $pagesToExtract; $pageNo++) {
+        for ($pageNo = 1; $pageNo <= 3; $pageNo++) {
             $newPdf->AddPage($pageOrientation, array($pageWidth, $pageHeight));
 
-            $newPdf->setSourceFile(public_path($imagePath));
+            $newPdf->setSourceFile(public_path($imagepath));
             $newPdf->useTemplate($newPdf->importPage($pageNo));
         }
 
