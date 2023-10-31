@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     $filePath = public_path('pdf\activity.pdf');
 
-    return view('welcome', compact('filePath'));
+    return view('newpage', compact('filePath'));
 });
 
-// Route::get('/pdff', [PdfController::class,'show'])->name('pdf.show');
+Route::post('/pdff', [PdfController::class,'show'])->name('pdf.show');
