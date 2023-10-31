@@ -30,7 +30,7 @@ class PdfController extends Controller
         $pageHeight = 300; 
         $pageOrientation = 'P'; 
 
-        for ($pageNo = 1; $pageNo <= 3; $pageNo++) {
+        for ($pageNo = 1; $pageNo <= $pagesToExtract; $pageNo++) {
             $newPdf->AddPage($pageOrientation, array($pageWidth, $pageHeight));
 
             $newPdf->setSourceFile(public_path($imagepath));
