@@ -21,3 +21,5 @@ Route::get('/', function () {
 });
 
 Route::get('/pdff', [PdfController::class,'show'])->name('pdf.show');
+Route::get('/get-pdf-page/{page}', [PdfController::class,'getPdfPage']);
+
